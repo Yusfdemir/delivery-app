@@ -8,6 +8,9 @@ const passport = require("passport")
 
 ///////
 const userRoutes = require("./routes/userRoutes")
+const categoryRoutes = require("./routes/categoryRoutes")
+const productRoutes = require("./routes/productRoutes")
+const addressRoutes = require("./routes/addressRoutes")
 
 //////
 const port = process.env.PORT || 3010 ; 
@@ -26,12 +29,13 @@ app.set('port', port);
 //////
 
 userRoutes(app);
-
-
+categoryRoutes(app);
+productRoutes(app)
+addressRoutes(app)
 //////
 
 /*mobil uygulamada istek atarken ip adresine ihtiyacımız olduğu için localdeki ip adresini ekledik cmd=> ipconfig => IPv4 adressi, modem her kapanıp açıldığında bu adress değişir*/
-server.listen(3010, '192.168.0.109' || 'localhost',function() {
+server.listen(3010, '192.168.0.114' || 'localhost',function() {
     console.log("node.js application run on port " + port)
 }) 
 
